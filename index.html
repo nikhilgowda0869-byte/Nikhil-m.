@@ -21,7 +21,7 @@ body{
     overflow:hidden;
     background:#000;
     color:#fff;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 .app{
@@ -31,8 +31,6 @@ body{
     overflow:hidden;
     background:#000;
 }
-
-/* SLIDES */
 
 .slide{
     position:absolute;
@@ -49,166 +47,76 @@ body{
     visibility:visible;
 }
 
-/* FULL IMAGE */
-
 .photo{
     position:absolute;
     inset:0;
     width:100%;
     height:100%;
-
-    /* Shows the complete photo */
     object-fit:contain;
-
     background:#000;
 }
 
-/* Slight dark overlay at bottom */
-
+/* Only a subtle dark area behind the button */
 .slide::after{
     content:"";
     position:absolute;
-    inset:0;
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(0,0,0,0) 50%,
-            rgba(0,0,0,.65) 100%
-        );
-
+    left:0;
+    right:0;
+    bottom:0;
+    height:180px;
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.55),
+        rgba(0,0,0,0)
+    );
     pointer-events:none;
 }
 
-/* PROGRESS */
-
-.progress{
-    position:absolute;
-    z-index:20;
-
-    top:
-        calc(12px + env(safe-area-inset-top));
-
-    left:16px;
-    right:16px;
-
-    display:flex;
-    gap:5px;
-}
-
-.bar{
-    height:3px;
-    flex:1;
-
-    border-radius:10px;
-
-    background:rgba(255,255,255,.3);
-
-    overflow:hidden;
-}
-
-.bar span{
-    display:block;
-
-    height:100%;
-    width:0;
-
-    background:white;
-
-    transition:.5s;
-}
-
-/* CONTENT */
-
 .content{
     position:absolute;
-
     z-index:10;
-
     left:0;
     right:0;
-
-    bottom:
-        calc(25px + env(safe-area-inset-bottom));
-
-    padding:
-        20px
-        22px
-        25px;
-
+    bottom:calc(30px + env(safe-area-inset-bottom));
+    padding:20px;
     text-align:center;
 }
 
-h1{
-    font-family:Georgia,serif;
-
-    font-size:38px;
-
-    font-weight:400;
-
-    line-height:1.08;
-
-    margin-bottom:18px;
-
-    text-shadow:
-        0 2px 10px rgba(0,0,0,.7);
-}
-
-/* BUTTON */
-
+/* Message exists ONLY inside this button */
 .next{
     display:inline-flex;
-
     align-items:center;
     justify-content:center;
-
-    min-height:50px;
-
-    padding:14px 25px;
-
+    min-height:52px;
+    max-width:92%;
+    padding:14px 24px;
     border-radius:30px;
-
-    border:1px solid
-        rgba(255,255,255,.45);
-
-    background:
-        rgba(0,0,0,.38);
-
+    border:1px solid rgba(255,255,255,.5);
+    background:rgba(0,0,0,.48);
     color:white;
-
-    font-size:14px;
-
+    font-size:15px;
+    line-height:1.35;
     backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px);
-
     cursor:pointer;
-
-    box-shadow:
-        0 5px 25px rgba(0,0,0,.25);
+    box-shadow:0 5px 25px rgba(0,0,0,.3);
 }
 
 .next:active{
     transform:scale(.96);
 }
 
-/* POPUP */
+/* Popup */
 
 .popup{
     position:fixed;
-
     inset:0;
-
     z-index:100;
-
     display:none;
-
     align-items:center;
     justify-content:center;
-
     padding:25px;
-
-    background:
-        rgba(0,0,0,.72);
-
+    background:rgba(0,0,0,.72);
     backdrop-filter:blur(8px);
     -webkit-backdrop-filter:blur(8px);
 }
@@ -220,119 +128,59 @@ h1{
 .popup-box{
     width:100%;
     max-width:400px;
-
     padding:28px 22px 24px;
-
     border-radius:24px;
-
-    background:
-        rgba(24,24,28,.97);
-
-    border:
-        1px solid
-        rgba(255,255,255,.2);
-
+    background:rgba(24,24,28,.97);
+    border:1px solid rgba(255,255,255,.2);
     text-align:center;
-
-    box-shadow:
-        0 20px 70px
-        rgba(0,0,0,.55);
+    box-shadow:0 20px 70px rgba(0,0,0,.55);
 }
 
 .popup-box h2{
     font-family:Georgia,serif;
-
     font-size:29px;
-
     font-weight:400;
-
     line-height:1.2;
-
     margin-bottom:18px;
 }
 
 textarea{
     width:100%;
-
     height:140px;
-
     resize:none;
-
     border-radius:16px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.2);
-
-    background:
-        rgba(255,255,255,.06);
-
+    border:1px solid rgba(255,255,255,.2);
+    background:rgba(255,255,255,.06);
     color:white;
-
     padding:15px;
-
     font-size:14px;
-
     font-family:Arial,sans-serif;
-
     outline:none;
 }
 
 textarea::placeholder{
-    color:
-        rgba(255,255,255,.45);
+    color:rgba(255,255,255,.45);
 }
 
 .buttons{
     display:flex;
-
     gap:10px;
-
     margin-top:12px;
 }
 
 .popup-btn{
     flex:1;
-
     min-height:48px;
-
     border-radius:14px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.2);
-
-    background:
-        rgba(255,255,255,.08);
-
+    border:1px solid rgba(255,255,255,.2);
+    background:rgba(255,255,255,.08);
     color:white;
-
     font-size:14px;
-
     cursor:pointer;
 }
 
 .send{
-    background:
-        rgba(255,255,255,.18);
-}
-
-/* SUCCESS */
-
-.success{
-    display:none;
-
-    font-family:Georgia,serif;
-
-    font-size:26px;
-
-    line-height:1.3;
-
-    margin-top:18px;
-}
-
-.success.show{
-    display:block;
+    background:rgba(255,255,255,.18);
 }
 
 @media(min-width:700px){
@@ -340,9 +188,7 @@ textarea::placeholder{
     .app{
         max-width:480px;
         margin:auto;
-
-        box-shadow:
-            0 0 70px #000;
+        box-shadow:0 0 70px #000;
     }
 
 }
@@ -350,40 +196,24 @@ textarea::placeholder{
 </style>
 </head>
 
-
 <body>
 
 <div class="app">
 
-
-    <!-- PROGRESS -->
-
-    <div
-        class="progress"
-        id="progress">
-    </div>
-
-
-    <!-- IMAGE 1 -->
+    <!-- SLIDE 1 -->
 
     <section class="slide active">
 
         <img
             src="moment1.jpg"
             class="photo"
-            alt="">
+            alt=""
+        >
 
         <div class="content">
 
-            <h1>
-                Enri Madam
-            </h1>
-
-            <button
-                class="next">
-
+            <button class="next">
                 Enri Madam →
-
             </button>
 
         </div>
@@ -391,26 +221,20 @@ textarea::placeholder{
     </section>
 
 
-    <!-- IMAGE 2 : COFFEE -->
+    <!-- SLIDE 2 -->
 
     <section class="slide">
 
         <img
             src="moment2.jpg"
             class="photo"
-            alt="">
+            alt=""
+        >
 
         <div class="content">
 
-            <h1>
+            <button class="next">
                 Coffee madi kodthira? ☕🤍
-            </h1>
-
-            <button
-                class="next">
-
-                Coffee madi kodthira? ☕ →
-
             </button>
 
         </div>
@@ -418,28 +242,20 @@ textarea::placeholder{
     </section>
 
 
-    <!-- IMAGE 3 : SAREE -->
+    <!-- SLIDE 3 -->
 
     <section class="slide">
 
         <img
             src="moment3.jpg"
             class="photo"
-            alt="">
+            alt=""
+        >
 
         <div class="content">
 
-            <h1>
-                Nan only expectation…
-                <br>
-                just be genuine. 🤍
-            </h1>
-
-            <button
-                class="next">
-
-                Continue →
-
+            <button class="next">
+                Nan only expectation… just be genuine. 🤍
             </button>
 
         </div>
@@ -447,22 +263,20 @@ textarea::placeholder{
     </section>
 
 
-    <!-- IMAGE 4 -->
+    <!-- SLIDE 4 -->
 
     <section class="slide">
 
         <img
             src="moment4.jpg"
             class="photo"
-            alt="">
+            alt=""
+        >
 
         <div class="content">
 
-            <button
-                class="next">
-
+            <button class="next">
                 Tap to continue →
-
             </button>
 
         </div>
@@ -470,30 +284,23 @@ textarea::placeholder{
     </section>
 
 
-    <!-- FINAL RAIN -->
+    <!-- FINAL SLIDE -->
 
     <section class="slide">
 
         <img
             src="rain.jpg"
             class="photo"
-            alt="">
+            alt=""
+        >
 
         <div class="content">
 
-            <h1>
-                Nan jothe walk madthira…
-                <br>
-                lifetime? 🤍
-            </h1>
-
             <button
                 class="next"
-                id="lifetimeButton">
-
-                Nan jothe walk madthira…
-                lifetime? 🤍
-
+                id="lifetimeButton"
+            >
+                Nan jothe walk madthira… lifetime? 🤍
             </button>
 
         </div>
@@ -507,7 +314,8 @@ textarea::placeholder{
 
 <div
     class="popup"
-    id="popup">
+    id="popup"
+>
 
     <div class="popup-box">
 
@@ -518,66 +326,59 @@ textarea::placeholder{
         <form
             id="responseForm"
             action="https://formsubmit.co/nikhilgowda0869@gmail.com"
-            method="POST">
-
-            <!-- FormSubmit settings -->
+            method="POST"
+        >
 
             <input
                 type="hidden"
                 name="_subject"
-                value="A response from your Enri Madam page 🤍">
+                value="A response from your Enri Madam page 🤍"
+            >
 
             <input
                 type="hidden"
                 name="_captcha"
-                value="false">
+                value="false"
+            >
 
             <input
                 type="hidden"
                 name="_template"
-                value="table">
+                value="table"
+            >
 
             <input
                 type="hidden"
                 name="_next"
-                value="https://nikhilgowda0869-byte.github.io/Nikhlddf/">
+                value="https://nikhilgowda0869-byte.github.io/Nikhlddf/"
+            >
 
             <textarea
                 name="message"
                 required
-                placeholder="Mansinda bari… 🤍">
-            </textarea>
+                placeholder="Mansinda bari… 🤍"
+            ></textarea>
 
             <div class="buttons">
 
                 <button
                     type="button"
                     class="popup-btn"
-                    id="back">
-
+                    id="back"
+                >
                     Back
-
                 </button>
 
                 <button
                     type="submit"
-                    class="popup-btn send">
-
+                    class="popup-btn send"
+                >
                     Send 🤍
-
                 </button>
 
             </div>
 
         </form>
-
-        <div
-            class="success"
-            id="success">
-
-            Thank you for being genuine. 🤍
-
-        </div>
 
     </div>
 
@@ -586,16 +387,11 @@ textarea::placeholder{
 
 <script>
 
-/* GET ELEMENTS */
-
 const slides =
     document.querySelectorAll(".slide");
 
 const nextButtons =
     document.querySelectorAll(".next");
-
-const progress =
-    document.getElementById("progress");
 
 const popup =
     document.getElementById("popup");
@@ -606,30 +402,8 @@ const lifetimeButton =
 const back =
     document.getElementById("back");
 
-const responseForm =
-    document.getElementById("responseForm");
-
 let current = 0;
 
-
-/* CREATE PROGRESS BARS */
-
-slides.forEach(() => {
-
-    const bar =
-        document.createElement("div");
-
-    bar.className = "bar";
-
-    bar.innerHTML =
-        "<span></span>";
-
-    progress.appendChild(bar);
-
-});
-
-
-/* UPDATE */
 
 function updateSlide(){
 
@@ -644,28 +418,8 @@ function updateSlide(){
         }
     );
 
-
-    const bars =
-        document.querySelectorAll(
-            ".bar span"
-        );
-
-
-    bars.forEach(
-        (bar,index) => {
-
-            bar.style.width =
-                index <= current
-                ? "100%"
-                : "0%";
-
-        }
-    );
-
 }
 
-
-/* NEXT BUTTONS */
 
 nextButtons.forEach(
     button => {
@@ -674,11 +428,10 @@ nextButtons.forEach(
             "click",
             () => {
 
-                /* FINAL BUTTON */
+                /* Final button opens response box */
 
                 if(
-                    button ===
-                    lifetimeButton
+                    button === lifetimeButton
                 ){
 
                     popup.classList.add(
@@ -686,10 +439,11 @@ nextButtons.forEach(
                     );
 
                     return;
+
                 }
 
 
-                /* NEXT SLIDE */
+                /* Move to next image */
 
                 if(
                     current <
@@ -709,8 +463,6 @@ nextButtons.forEach(
 );
 
 
-/* CLOSE POPUP */
-
 back.addEventListener(
     "click",
     () => {
@@ -722,8 +474,6 @@ back.addEventListener(
     }
 );
 
-
-/* START */
 
 updateSlide();
 
